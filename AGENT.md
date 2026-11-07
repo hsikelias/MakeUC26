@@ -1,4 +1,4 @@
-    # ATELIER — Hackathon Implementation Guide & AI Agent Rules
+	# ATELIER — Hackathon Implementation Guide & AI Agent Rules
 
 > **Project:** Atelier · Observation Mode  
 > **Platform:** Windows desktop  
