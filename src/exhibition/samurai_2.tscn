@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://cquioua0206yy"]
+
+[ext_resource type="PackedScene" uid="uid://dikxrh66dw4o" path="res://src/assets/exhibits/indoor/samurai2/procedural_chinese_armor_test_5.glb" id="1_ekxob"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_rhq7e"]
+size = Vector3(1, 1.7177734, 0.54956055)
+
+[node name="Samurai2" type="Node3D" unique_id=811672903]
+
+[node name="ModelSamurai2" parent="." unique_id=537105694 instance=ExtResource("1_ekxob")]
+transform = Transform3D(6.5, 0, 0, 0, 6.5, 0, 0, 0, 6.5, 0.059968352, 0, 0.1607058)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="ModelSamurai2" unique_id=397551217]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.024116278, -0.00793457)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ModelSamurai2/StaticBody3D" unique_id=196782900]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9724411, -0.00793457)
+shape = SubResource("BoxShape3D_rhq7e")

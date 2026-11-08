@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://dgs0hhgygifes"]
+
+[ext_resource type="PackedScene" uid="uid://bhssu6k1schx7" path="res://src/assets/exhibits/indoor/assault_mech/centurion_heavy_assault_mech.glb" id="1_kys3r"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_rhq7e"]
+size = Vector3(2.090271, 3.364746, 1.0341797)
+
+[node name="AssaultMech" type="Node3D" unique_id=861107191]
+
+[node name="ModelAssaultMech" parent="." unique_id=386110107 instance=ExtResource("1_kys3r")]
+transform = Transform3D(4.2, 0, 0, 0, 4.2, 0, 0, 0, 4.2, 0.022682667, 0, 0.866802)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1400926548]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=381703537]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.019088864, 1.182373, 0.7252505)
+shape = SubResource("BoxShape3D_rhq7e")

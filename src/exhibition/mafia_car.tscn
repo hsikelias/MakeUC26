@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://c6a3n2tbwwgcl"]
+
+[ext_resource type="PackedScene" uid="uid://dbyi8sim5vxs" path="res://src/assets/exhibits/indoor/mafia_car/mafia_ii_definitive_edition_smith_thunderbolt.glb" id="1_n10ae"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xmnv8"]
+size = Vector3(5.6879272, 1.623291, 2.37854)
+
+[node name="MafiaCar" type="Node3D" unique_id=484904616]
+
+[node name="ModelCar" parent="." unique_id=1394935504 instance=ExtResource("1_n10ae")]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, -0.022502184, 0, -0.5852299)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="ModelCar" unique_id=522211333]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ModelCar/StaticBody3D" unique_id=1599251029]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.019866943, 0.8340266, 0.010559082)
+shape = SubResource("BoxShape3D_xmnv8")

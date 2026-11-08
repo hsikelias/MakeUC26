@@ -5,6 +5,13 @@
 [ext_resource type="PackedScene" uid="uid://b24vjrac44u4h" path="res://src/player/player.tscn" id="2_cjspe"]
 [ext_resource type="PackedScene" uid="uid://d3fuvpvfr1111" path="res://src/assets/environment/big_construction_dig_site_and_heaps.glb" id="4_ikk52"]
 [ext_resource type="PackedScene" uid="uid://cu375n0nlu8ww" path="res://src/exhibition/samurai.tscn" id="5_4xui3"]
+[ext_resource type="PackedScene" uid="uid://dgs0hhgygifes" path="res://src/exhibition/assault_mech.tscn" id="6_7gxp8"]
+[ext_resource type="PackedScene" uid="uid://cquioua0206yy" path="res://src/exhibition/samurai_2.tscn" id="7_d8bnw"]
+[ext_resource type="PackedScene" uid="uid://c6a3n2tbwwgcl" path="res://src/exhibition/mafia_car.tscn" id="8_btgb6"]
+[ext_resource type="PackedScene" uid="uid://coik4m4k3g0bi" path="res://src/exhibition/lunar_rover.tscn" id="9_7wmjv"]
+[ext_resource type="PackedScene" uid="uid://b5mgyq2ghlnae" path="res://src/exhibition/war_machine.tscn" id="10_5pkc3"]
+[ext_resource type="PackedScene" uid="uid://dl2sp22ihjuwq" path="res://src/exhibition/chihuahua.tscn" id="11_wv0o6"]
+[ext_resource type="PackedScene" uid="uid://r78ubc8rx8m4" path="res://src/exhibition/ungarisches.tscn" id="12_p15xj"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_cjspe"]
 panorama = ExtResource("1_640v4")
@@ -74,5 +81,28 @@ debug_color = Color(0, 11.618606, 13.50434, 0.9607843)
 
 [node name="Exhibit" type="Node3D" parent="." unique_id=685352496]
 
-[node name="Samurai" parent="Exhibit" unique_id=1136895120 instance=ExtResource("5_4xui3")]
+[node name="Indoor" type="Node3D" parent="Exhibit" unique_id=1868792347]
+
+[node name="Samurai" parent="Exhibit/Indoor" unique_id=1136895120 instance=ExtResource("5_4xui3")]
 transform = Transform3D(1.1607699, 0, -0.55121505, 0, 1.285, 0, 0.55121505, 0, 1.1607699, 150.88025, 60.023438, -97.27143)
+
+[node name="AssaultMech" parent="Exhibit/Indoor" unique_id=861107191 instance=ExtResource("6_7gxp8")]
+transform = Transform3D(-0.16702114, 0, -0.98595333, 0, 1, 0, 0.98595333, 0, -0.16702114, 110.827286, 52.090908, -60.674618)
+
+[node name="Samurai2" parent="Exhibit/Indoor" unique_id=811672903 instance=ExtResource("7_d8bnw")]
+transform = Transform3D(0.8682601, 0, 0.49610925, 0, 1, 0, -0.49610925, 0, 0.8682601, 138.85059, 51.989464, -89.96169)
+
+[node name="MafiaCar" parent="Exhibit/Indoor" unique_id=484904616 instance=ExtResource("8_btgb6")]
+transform = Transform3D(0.5010497, 0, 0.86541855, 0, 1, 0, -0.86541855, 0, 0.5010497, 147.85957, 36.34387, -45.92364)
+
+[node name="LunarRover" parent="Exhibit/Indoor" unique_id=1778801407 instance=ExtResource("9_7wmjv")]
+transform = Transform3D(0.33666813, 0, -0.9416234, 0, 1, 0, 0.9416234, 0, 0.33666813, 141.49763, 51.94298, -69.003685)
+
+[node name="WarMachine" parent="Exhibit/Indoor" unique_id=552289580 instance=ExtResource("10_5pkc3")]
+transform = Transform3D(0.6422081, 0, 0.76653033, 0, 1, 0, -0.76653033, 0, 0.6422081, 142.14787, 51.987335, -47.124874)
+
+[node name="Chihuahua" parent="Exhibit/Indoor" unique_id=1546637973 instance=ExtResource("11_wv0o6")]
+transform = Transform3D(-0.91782755, 0, -0.39697927, 0, 1, 0, 0.39697927, 0, -0.91782755, 154.6621, 51.720512, -37.42561)
+
+[node name="Ungarisches" parent="Exhibit/Indoor" unique_id=1876049542 instance=ExtResource("12_p15xj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 160.27577, 36.23035, -79.33009)

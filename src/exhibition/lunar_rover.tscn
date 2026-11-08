@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://coik4m4k3g0bi"]
+
+[ext_resource type="PackedScene" uid="uid://b10nliahmledc" path="res://src/assets/exhibits/indoor/lunar_rover/mondfahrzeug_lunar_rover.glb" id="1_a0aqg"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_rhq7e"]
+size = Vector3(3.3659058, 1.8380127, 2.2700195)
+
+[node name="LunarRover" type="Node3D" unique_id=1778801407]
+
+[node name="Sketchfab_Scene" parent="." unique_id=2002312045 instance=ExtResource("1_a0aqg")]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0.16673255, 0, 0.41658163)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Sketchfab_Scene" unique_id=778256517]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Sketchfab_Scene/StaticBody3D" unique_id=725833763]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.15335083, 0.93834066, 0.0041503906)
+shape = SubResource("BoxShape3D_rhq7e")

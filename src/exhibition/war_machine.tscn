@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://b5mgyq2ghlnae"]
+
+[ext_resource type="PackedScene" uid="uid://ide1wt12ji5o" path="res://src/assets/exhibits/indoor/war_machine/kv-at-st.glb" id="1_5qqo8"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_rhq7e"]
+size = Vector3(10.885468, 13.323639, 12.976624)
+
+[node name="WarMachine" type="Node3D" unique_id=552289580]
+
+[node name="ModelWarMachine" parent="." unique_id=324550090 instance=ExtResource("1_5qqo8")]
+transform = Transform3D(0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 0.16300881, 1.1920929e-07, -1.3136711)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="ModelWarMachine" unique_id=491904596]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ModelWarMachine/StaticBody3D" unique_id=550398232]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.8032378, 6.1618195, -0.41690063)
+shape = SubResource("BoxShape3D_rhq7e")
