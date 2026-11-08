@@ -28,6 +28,12 @@ fog_sky_affect = 0.1
 fog_height = -611.98
 fog_height_density = -3.597
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_rhq7e"]
+size = Vector3(89.82935, 1, 100.08869)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ikk52"]
+size = Vector3(197.59717, 1, 100.08869)
+
 [node name="World" type="Node3D" unique_id=1384044595]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=12921726]
@@ -36,16 +42,31 @@ environment = SubResource("Environment_ikk52")
 [node name="Museum" parent="." unique_id=60720330 instance=ExtResource("1_pcmil")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 223.9664, 52.391384, -94.48855)
 
-[node name="Player" parent="Museum" unique_id=705672869 instance=ExtResource("2_cjspe")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32.01213, 0.6262474, -75.84925)
+[node name="Ground" parent="." unique_id=1054122374 instance=ExtResource("4_ikk52")]
+transform = Transform3D(7.171877, 0, 4.8164973, 0, 2.7813506, 0, -4.0616493, 0, 8.504754, 222.95319, 28.008186, 98.54127)
 
-[node name="InteriorLighting" type="Node" parent="Museum" unique_id=1579499843]
+[node name="Player" parent="." unique_id=705672869 instance=ExtResource("2_cjspe")]
+transform = Transform3D(-0.06443294, 0, -0.99792206, 0, 1, 0, 0.99792206, 0, -0.06443294, 157.66031, 56.135834, -62.476406)
 
-[node name="OmniLight3D" type="OmniLight3D" parent="Museum/InteriorLighting" unique_id=2144599927]
+[node name="InteriorLighting" type="Node" parent="." unique_id=1579499843]
+
+[node name="OmniLight3D" type="OmniLight3D" parent="InteriorLighting" unique_id=2144599927]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 93.136375, 63.872757, -69.126335)
 light_size = 0.324
 omni_range = 18.136276
 omni_attenuation = 2.0
 
-[node name="Ground" parent="." unique_id=1054122374 instance=ExtResource("4_ikk52")]
-transform = Transform3D(7.171877, 0, 4.8164973, 0, 2.7813506, 0, -4.0616493, 0, 8.504754, 222.95319, 28.008186, 98.54127)
+[node name="MuseumCollision" type="Node3D" parent="." unique_id=575608630]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 146.32475, 51.61386, -78.813545)
+
+[node name="FloorCoolision" type="StaticBody3D" parent="MuseumCollision" unique_id=561146564]
+
+[node name="TopFloorCollision" type="CollisionShape3D" parent="MuseumCollision/FloorCoolision" unique_id=480855088]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.206894, -0.11117172, 6.714119)
+shape = SubResource("BoxShape3D_rhq7e")
+debug_color = Color(0, 11.618606, 13.50434, 0.9607843)
+
+[node name="BottomFloorCollision" type="CollisionShape3D" parent="MuseumCollision/FloorCoolision" unique_id=1083823760]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35.677017, -15.938129, 6.714119)
+shape = SubResource("BoxShape3D_ikk52")
+debug_color = Color(0, 11.618606, 13.50434, 0.9607843)

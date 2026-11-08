@@ -1,12 +1,26 @@
 [gd_scene format=3 uid="uid://b24vjrac44u4h"]
 
+[ext_resource type="Script" uid="uid://dvgre014sgvaf" path="res://src/player/PlayerController.cs" id="1_4anbu"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_rhq7e"]
+radius = 1.0
+height = 8.5
+
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_pcmil"]
+radius = 1.0
+height = 8.5
 
 [node name="Player" type="CharacterBody3D" unique_id=705672869]
+script = ExtResource("1_4anbu")
+
+[node name="CapsuleMesh" type="MeshInstance3D" parent="." unique_id=1324282076]
+mesh = SubResource("CapsuleMesh_rhq7e")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1989653583]
 shape = SubResource("CapsuleShape3D_pcmil")
+debug_color = Color(0, 2.0770802, 2.4214926, 0.41960785)
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1508346705]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8643547, -0.5053128)
 
 [node name="SketchbookAnchor" type="Node3D" parent="Camera3D" unique_id=827709023]
