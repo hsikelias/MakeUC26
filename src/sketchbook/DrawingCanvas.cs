@@ -19,7 +19,7 @@ public partial class DrawingCanvas : Control
 		{
     		if (stroke.Count >= 2)
     		{
-        	DrawPolyline(stroke.ToArray(), Colors.Black, 4.0f, true);
+        	DrawPolyline(stroke.ToArray(), Colors.Black, 2.5f, true);
 			//drawing pen stroke width.
     		}
 		}
@@ -102,4 +102,44 @@ public partial class DrawingCanvas : Control
 
 		QueueRedraw();
 	}
+
+	public void SavePage()
+{
+    const string saveDirectory = "user://sketches";
+    string absoluteDirectory =
+        ProjectSettings.GlobalizePath(saveDirectory);
+
+    if (!DirAccess.DirExistsAbsolute(absoluteDirectory))
+    {
+        Error directoryError =
+            DirAccess.MakeDirRecursiveAbsolute(absoluteDirectory);
+
+        if (directoryError != Error.Ok)
+        {
+            GD.PrintErr($"Could not create sketch directory: {directoryError}");
+            return;
+        }
+    }
+
+    string timestamp = DateTime.Now.ToString(
+        "yyyy-MM-dd_HH-mm-ss-fff"
+    );
+
+    string savePath =
+        $"{saveDirectory}/sketch_{timestamp}.png";
+
+    Image image = GetViewport().GetTexture().GetImage();
+    Error saveError = image.SavePng(savePath);
+
+    if (saveError == Error.Ok)
+    {
+        GD.Print(
+            $"Sketch saved to: {ProjectSettings.GlobalizePath(savePath)}"
+        );
+    }
+    else
+    {
+        GD.PrintErr($"Could not save sketch: {saveError}");
+    }
+}
 }

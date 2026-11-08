@@ -101,6 +101,12 @@ public partial class SketchbookController : Node3D
         }
 
         if (_currentState == SketchbookState.Drawing
+            && @event.IsActionPressed("save_sketch"))
+        {
+            _drawingCanvas.SavePage();
+        }
+
+        if (_currentState == SketchbookState.Drawing
             && @event is InputEventMouseMotion mouseMotion
             && (mouseMotion.ButtonMask & MouseButtonMask.Left) != 0)
         {
