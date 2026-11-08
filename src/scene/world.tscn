@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://57pc248r70hr" path="res://src/assets/museum/museum.glb" id="1_pcmil"]
 [ext_resource type="PackedScene" uid="uid://b24vjrac44u4h" path="res://src/player/player.tscn" id="2_cjspe"]
 [ext_resource type="PackedScene" uid="uid://d3fuvpvfr1111" path="res://src/assets/environment/big_construction_dig_site_and_heaps.glb" id="4_ikk52"]
+[ext_resource type="PackedScene" uid="uid://cu375n0nlu8ww" path="res://src/exhibition/samurai.tscn" id="5_4xui3"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_cjspe"]
 panorama = ExtResource("1_640v4")
@@ -32,7 +33,7 @@ fog_height_density = -3.597
 size = Vector3(89.82935, 1, 100.08869)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ikk52"]
-size = Vector3(197.59717, 1, 100.08869)
+size = Vector3(473.6941, 1, 296.0521)
 
 [node name="World" type="Node3D" unique_id=1384044595]
 
@@ -67,6 +68,11 @@ shape = SubResource("BoxShape3D_rhq7e")
 debug_color = Color(0, 11.618606, 13.50434, 0.9607843)
 
 [node name="BottomFloorCollision" type="CollisionShape3D" parent="MuseumCollision/FloorCoolision" unique_id=1083823760]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35.677017, -15.938129, 6.714119)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 86.02211, -15.938129, 21.626598)
 shape = SubResource("BoxShape3D_ikk52")
 debug_color = Color(0, 11.618606, 13.50434, 0.9607843)
+
+[node name="Exhibit" type="Node3D" parent="." unique_id=685352496]
+
+[node name="Samurai" parent="Exhibit" unique_id=1136895120 instance=ExtResource("5_4xui3")]
+transform = Transform3D(1.1607699, 0, -0.55121505, 0, 1.285, 0, 0.55121505, 0, 1.1607699, 150.88025, 60.023438, -97.27143)

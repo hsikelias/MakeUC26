@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://cu375n0nlu8ww"]
+
+[ext_resource type="PackedScene" uid="uid://46k0cyrl8yg2" path="res://src/assets/exhibits/indoor/samurai/samurai.glb" id="1_3gtml"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_rhq7e"]
+size = Vector3(2.9033813, 5.587387, 1.336792)
+
+[node name="Samurai" type="Node3D" unique_id=1136895120]
+
+[node name="ModelSamurai" parent="." unique_id=775723571 instance=ExtResource("1_3gtml")]
+transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, 0, 0, 0)
+
+[node name="Collision" type="StaticBody3D" parent="." unique_id=669014341]
+
+[node name="BodyCollision" type="CollisionShape3D" parent="Collision" unique_id=561406162]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.041412354, -1.4031906, 0.168396)
+shape = SubResource("BoxShape3D_rhq7e")
