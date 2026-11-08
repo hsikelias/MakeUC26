@@ -1,0 +1,51 @@
+[gd_scene format=3 uid="uid://da45wldugbdmf"]
+
+[ext_resource type="Texture2D" uid="uid://15r3dbi8qqut" path="res://src/assets/environment/kloofendal_48d_partly_cloudy_puresky_4k.exr" id="1_640v4"]
+[ext_resource type="PackedScene" uid="uid://57pc248r70hr" path="res://src/assets/museum/museum.glb" id="1_pcmil"]
+[ext_resource type="PackedScene" uid="uid://b24vjrac44u4h" path="res://src/player/player.tscn" id="2_cjspe"]
+[ext_resource type="PackedScene" uid="uid://d3fuvpvfr1111" path="res://src/assets/environment/big_construction_dig_site_and_heaps.glb" id="4_ikk52"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_cjspe"]
+panorama = ExtResource("1_640v4")
+
+[sub_resource type="Sky" id="Sky_640v4"]
+sky_material = SubResource("PanoramaSkyMaterial_cjspe")
+
+[sub_resource type="Environment" id="Environment_ikk52"]
+background_mode = 2
+background_color = Color(0.6681074, 0.63240427, 0.6346524, 1)
+sky = SubResource("Sky_640v4")
+ssr_enabled = true
+ssr_fade_in = 0.02080449
+ssil_enabled = true
+ssil_radius = 8.26
+ssil_intensity = 1.43
+fog_light_color = Color(0.65688634, 0.73638886, 0.73946214, 1)
+fog_light_energy = 0.0
+fog_sun_scatter = 0.08
+fog_density = 0.0721
+fog_sky_affect = 0.1
+fog_height = -611.98
+fog_height_density = -3.597
+
+[node name="World" type="Node3D" unique_id=1384044595]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=12921726]
+environment = SubResource("Environment_ikk52")
+
+[node name="Museum" parent="." unique_id=60720330 instance=ExtResource("1_pcmil")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 223.9664, 52.391384, -94.48855)
+
+[node name="Player" parent="Museum" unique_id=705672869 instance=ExtResource("2_cjspe")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32.01213, 0.6262474, -75.84925)
+
+[node name="InteriorLighting" type="Node" parent="Museum" unique_id=1579499843]
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Museum/InteriorLighting" unique_id=2144599927]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 93.136375, 63.872757, -69.126335)
+light_size = 0.324
+omni_range = 18.136276
+omni_attenuation = 2.0
+
+[node name="Ground" parent="." unique_id=1054122374 instance=ExtResource("4_ikk52")]
+transform = Transform3D(7.171877, 0, 4.8164973, 0, 2.7813506, 0, -4.0616493, 0, 8.504754, 222.95319, 28.008186, 98.54127)
