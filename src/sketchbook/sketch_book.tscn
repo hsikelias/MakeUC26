@@ -2,7 +2,35 @@
 
 [ext_resource type="PackedScene" uid="uid://0bbrgfyyxgr0" path="res://src/sketchbook/sketchbook.glb" id="1_rmvq3"]
 
+[sub_resource type="ViewportTexture" id="ViewportTexture_rmvq3"]
+viewport_path = NodePath("DrawingViewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_t1fbj"]
+resource_local_to_scene = true
+albedo_texture = SubResource("ViewportTexture_rmvq3")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5yj1t"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_rhq7e"]
+material = SubResource("StandardMaterial3D_5yj1t")
+size = Vector2(4.125, 2.725)
+
 [node name="SketchBook" type="Node3D" unique_id=1111014860]
 
 [node name="BookModel" parent="." unique_id=2092396495 instance=ExtResource("1_rmvq3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.29230452, 0, -0.33519703)
+
+[node name="DrawingSurface" type="MeshInstance3D" parent="." unique_id=1038012682]
+transform = Transform3D(-0.9999993, -8.954283e-12, -0.001190394, -7.067938e-06, 0.99998236, 0.0059374645, 0.0011903733, 0.005937472, -0.99998164, -0.41056895, -0.14808637, 0.28313732)
+material_override = SubResource("StandardMaterial3D_t1fbj")
+mesh = SubResource("QuadMesh_rhq7e")
+
+[node name="DrawingViewport" type="SubViewport" parent="." unique_id=49452763]
+disable_3d = true
+size = Vector2i(2048, 1352)
+render_target_update_mode = 4
+
+[node name="PaperBackground" type="ColorRect" parent="DrawingViewport" unique_id=62745137]
+offset_right = 2048.0
+offset_bottom = 1352.0
+color = Color(0.86390287, 0.86782753, 0.8776147, 1)
