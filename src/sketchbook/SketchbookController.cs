@@ -89,6 +89,18 @@ public partial class SketchbookController : Node3D
         }
 
         if (_currentState == SketchbookState.Drawing
+            && @event.IsActionPressed("undo_stroke"))
+        {
+            _drawingCanvas.UndoLastStroke();
+        }
+
+        if (_currentState == SketchbookState.Drawing
+            && @event.IsActionPressed("new_page"))
+        {
+            _drawingCanvas.ClearPage();
+        }
+
+        if (_currentState == SketchbookState.Drawing
             && @event is InputEventMouseMotion mouseMotion
             && (mouseMotion.ButtonMask & MouseButtonMask.Left) != 0)
         {

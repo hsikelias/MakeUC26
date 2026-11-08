@@ -28,6 +28,10 @@ public partial class DrawingCanvas : Control
 	private readonly List<List<Vector2>> _strokes = new();
 	private List<Vector2> _currentStroke = new();
 	private bool _isDrawing;
+	
+	// ts the most stroke history programs gonna remember.
+	private const int MaxUndoSteps = 5;
+	private readonly List<List<Vector2>> _undoHistory = new();
 
 	public void BeginStroke(Vector2 point)
 	{
@@ -50,8 +54,52 @@ public partial class DrawingCanvas : Control
 
 	public void EndStroke()
 	{
-		// stops accepting points to that specific strokee
-    	_isDrawing = false;
+		if (!_isDrawing)
+		{
+			return;
+		}
+
+		_isDrawing = false;
+
+		if (_currentStroke.Count < 2)
+		{
+			_strokes.Remove(_currentStroke);
+			return;
+		}
+
+		_undoHistory.Add(_currentStroke);
+
+		if (_undoHistory.Count > MaxUndoSteps)
+		{
+			_undoHistory.RemoveAt(0);
+		}
+
 	}
 
+	public void UndoLastStroke()
+	{
+		if (_isDrawing || _undoHistory.Count == 0)
+		{
+			return;
+		}
+
+		List<Vector2> strokeToRemove =
+			_undoHistory[_undoHistory.Count - 1];
+
+		_undoHistory.RemoveAt(_undoHistory.Count - 1);
+		_strokes.Remove(strokeToRemove);
+
+		QueueRedraw();
+	}
+
+	public void ClearPage()
+	{
+		_isDrawing = false;
+		_currentStroke = new List<Vector2>();
+
+		_strokes.Clear();
+		_undoHistory.Clear();
+
+		QueueRedraw();
+	}
 }
