@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://b24vjrac44u4h"]
 
 [ext_resource type="Script" uid="uid://dvgre014sgvaf" path="res://src/player/PlayerController.cs" id="1_4anbu"]
+[ext_resource type="PackedScene" uid="uid://c35kxhxk77f0x" path="res://src/sketchbook/sketch_book.tscn" id="2_rxibo"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_rhq7e"]
 radius = 1.0
@@ -25,3 +26,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5178843, -0.9704348)
 fov = 100.0
 
 [node name="SketchbookAnchor" type="Node3D" parent="Camera3D" unique_id=827709023]
+
+[node name="SketchBook" parent="Camera3D/SketchbookAnchor" unique_id=1111014860 instance=ExtResource("2_rxibo")]
+transform = Transform3D(-1.2333946, 5.2259486e-10, -0.004945796, 0.00062848866, 0.99466634, -0.10326409, 0.0060606697, -0.10314646, -0.9958012, -0.33997297, -1.709039, -2.510548)

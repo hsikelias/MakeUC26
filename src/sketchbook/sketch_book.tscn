@@ -1,3 +1,8 @@
-[gd_scene format=3 uid="uid://j8vtiqr0i2sw"]
+[gd_scene format=3 uid="uid://c35kxhxk77f0x"]
 
-[node name="SketchBook" type="Node3D" unique_id=1360889141]
+[ext_resource type="PackedScene" uid="uid://0bbrgfyyxgr0" path="res://src/sketchbook/sketchbook.glb" id="1_rmvq3"]
+
+[node name="SketchBook" type="Node3D" unique_id=1111014860]
+
+[node name="BookModel" parent="." unique_id=2092396495 instance=ExtResource("1_rmvq3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.29230452, 0, -0.33519703)

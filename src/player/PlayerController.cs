@@ -16,6 +16,8 @@ public partial class PlayerController : CharacterBody3D
 	[Export]
 	public float MouseSensitivity {get; set;} = 0.002f;
 	private float _cameraPitch = 0.0f; // remembers current vertical angle b/w events
+
+	// maybe we can add fov too, even in game.
 	
     public override void _Ready()
 	{
