@@ -16,7 +16,8 @@ public partial class PlayerController : CharacterBody3D
 	[Export]
 	public float MouseSensitivity {get; set;} = 0.002f;
 	private float _cameraPitch = 0.0f; // remembers current vertical angle b/w events
-
+	private bool _movementEnabled = true;
+	private bool _lookEnabled = true;
 	// maybe we can add fov too, even in game.
 	
     public override void _Ready()
@@ -30,10 +31,24 @@ public partial class PlayerController : CharacterBody3D
 
 		 _camera = GetNode<Camera3D>("Camera3D");
 		 _cameraPitch = _camera.Rotation.X;
+	}
+	public void SetMovementEnabled(bool enabled)
+	{
+		_movementEnabled = enabled;
 
-
+		if (!enabled)
+		{
+			Vector3 velocity = Velocity;
+			velocity.X = 0;
+			velocity.Z = 0;
+			Velocity = velocity;
+		}
 	}
 
+	public void SetLookEnabled(bool enabled)
+	{
+		_lookEnabled = enabled;
+	}
     public override void _UnhandledInput(InputEvent @event)
 	{
 		// event based input
@@ -48,7 +63,7 @@ public partial class PlayerController : CharacterBody3D
 
 		// logic purely for mouse mode. 
 
-		if (@event.IsActionPressed("ui_cancel"))
+		if (_lookEnabled && @event.IsActionPressed("ui_cancel"))
 		{
 			Input.MouseMode = Input.MouseModeEnum.Visible;
 			GD.Print("pressed esc");
@@ -58,6 +73,7 @@ public partial class PlayerController : CharacterBody3D
 			&& mouseButton.ButtonIndex == MouseButton.Left
 			&& mouseButton.Pressed
 			&& Input.MouseMode != Input.MouseModeEnum.Captured
+			&& _lookEnabled
 		)
 		{
 			Input.MouseMode = Input.MouseModeEnum.Captured;
@@ -65,7 +81,8 @@ public partial class PlayerController : CharacterBody3D
 		}
 
 		// vertical mouse motion and horizontal movemnt
-		if (Input.MouseMode == Input.MouseModeEnum.Captured
+		if (_lookEnabled
+			&& Input.MouseMode == Input.MouseModeEnum.Captured
 			&& @event is InputEventMouseMotion mouseMotion)
 		{
 			RotateY(-mouseMotion.Relative.X * MouseSensitivity);
@@ -99,12 +116,14 @@ public partial class PlayerController : CharacterBody3D
 
 		// local variable to store input direction
 
-		Vector2 input = Input.GetVector(
-			"move_left",
-			"move_right",
-			"move_forward",
-			"move_backward"
-		);
+		Vector2 input = _movementEnabled
+			? Input.GetVector(
+				"move_left",
+				"move_right",
+				"move_forward",
+				"move_backward"
+			)
+			: Vector2.Zero;
 		
 		Vector3 localDirection = new Vector3(input.X, 0, input.Y);
 		Vector3 direction = (Transform.Basis * localDirection).Normalized();

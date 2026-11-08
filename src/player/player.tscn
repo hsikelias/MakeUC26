@@ -28,4 +28,4 @@ fov = 100.0
 [node name="SketchbookAnchor" type="Node3D" parent="Camera3D" unique_id=827709023]
 
 [node name="SketchBook" parent="Camera3D/SketchbookAnchor" unique_id=1111014860 instance=ExtResource("2_rxibo")]
-transform = Transform3D(-1.2333946, 5.2259486e-10, -0.004945796, 0.00062848866, 0.99466634, -0.10326409, 0.0060606697, -0.10314646, -0.9958012, -0.33997297, -1.709039, -2.510548)
+transform = Transform3D(-1.2333944, 7.299137e-10, -0.004945794, 0.0014891238, 0.9696763, -0.2446711, 0.0059084035, -0.24439241, -0.97078276, -0.33997297, -1.709039, -2.510548)
